@@ -12,9 +12,9 @@ import java.util.List;
 public class MainAdapter extends RecyclerView.Adapter<MainBaseHolder> {
 
     private Context mContext;
-    private List<Integer> mList;
+    private List<TestBean> mList;
 
-    public MainAdapter(Context context, List<Integer> typeList) {
+    public MainAdapter(Context context, List<TestBean> typeList) {
         this.mContext = context;
         this.mList = typeList;
     }
@@ -54,6 +54,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainBaseHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mList.size();
     }
 }

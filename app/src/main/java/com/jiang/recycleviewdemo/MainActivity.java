@@ -8,6 +8,9 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,9 +24,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         //设置为垂直布局，这也是默认的
         layoutManager.setOrientation(OrientationHelper.VERTICAL);
+        List<TestBean> list = new ArrayList<>();
 
+        TestBean testBean0 = new TestBean();
 
-        MainAdapter mainAdapter = new MainAdapter();
+        for (int i = 1; i < 30; i++) {
+            TestBean bean = new TestBean();
+            bean.name = "Main" + i;
+            list.add(bean);
+        }
+
+        MainAdapter mainAdapter = new MainAdapter(getApplicationContext(), list);
         recyclerView.setAdapter(mainAdapter);
     }
 }
